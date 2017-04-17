@@ -63,3 +63,7 @@ var aqiData = [
 * 建议不使用任何第三方库、框架
 * 示例代码仅为示例，可以直接使用，也可以完全自己重写
 
+在线学习参考资料
+==
+* [JavaScript入门篇](http://www.imooc.com/learn/36)
+* [MDN JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
