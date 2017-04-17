@@ -4,10 +4,17 @@
     <meta charset="utf-8">
     <title>IFE JavaScript Task 01</title>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    </style>
   </head>
 <body>
 
   <h3>污染城市列表</h3>
+  <label for="">
+    请输入最低空气质量
+    <input type="text" id="min" placeholder="请输入0-100之间的数值"><br/>
+    <button id="btn">点击显示符合条件的城市</button>
+  </label>
   <ul id="aqi-list">
 <!--   
     <li>第一名：福州（样例），10</li>
@@ -32,18 +39,27 @@ var aqiData = [
   遍历读取aqiData中各个城市的数据
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
+  var btn = document.getElementById("btn");
   var aqiul = document.getElementById("aqi-list");
-  var b = aqiData.filter(function(a){
-    return a[1] > 60;
-  });//选出空气质量指数大于60的城市并赋给数组b；
-  b.sort(function(a, c){
-    return c[1] - a[1];
-  });//把数组b按大到小排列；
-   for (var i = 0; i < b.length; i++) {
-      var list = document.createElement("li");
-      var txt = document.createTextNode(b[i]);
-      aqiul.appendChild(list);
-      list.appendChild(txt);
+  btn.onclick = function() {
+    aqiul.innerHTML = null;
+    var min = parseInt(document.getElementById("min").value);
+    if(min) {
+      var b = aqiData.filter(function(a){
+      return a[1] > min;
+    });//选出空气质量指数大于60的城市并赋给数组b；
+    b.sort(function(a, c){
+      return c[1] - a[1];
+    });//把数组b按大到小排列；
+     for (var i = 0; i < b.length; i++) {
+        var list = document.createElement("li");
+        var txt = document.createTextNode(b[i]);
+        aqiul.appendChild(list);
+        list.appendChild(txt);
+      }
+    } else {
+      alert("请输入最低空气质量");
+    }
   }
 })();
 
