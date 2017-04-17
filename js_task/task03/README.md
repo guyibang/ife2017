@@ -1,5 +1,4 @@
-[task03_demo](https://guyibang.github.io/ife2017/js_task/task03/task03.html)
---
+
 任务目的
 ==
 * 在上一任务基础上继续JavaScript的体验
